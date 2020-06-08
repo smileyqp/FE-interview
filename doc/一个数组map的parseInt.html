@@ -1,0 +1,324 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>['1', '2', '3'].map(parseInt) what & why ? · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    
+    <link rel="prev" href="new一个对象.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    前端基础知识
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.1.1" data-path="闭包.html">
+            
+                <a href="闭包.html">
+            
+                    
+                    闭包
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.2" data-path="跨域.html">
+            
+                <a href="跨域.html">
+            
+                    
+                    跨域
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.3" data-path="for.html">
+            
+                <a href="for.html">
+            
+                    
+                    for in & for of
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.4" data-path="new一个对象.html">
+            
+                <a href="new一个对象.html">
+            
+                    
+                    new一个对象
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.1.5" data-path="一个数组map的parseInt.html">
+            
+                <a href="一个数组map的parseInt.html">
+            
+                    
+                    ['1', '2', '3'].map(parseInt) what & why ?
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >['1', '2', '3'].map(parseInt) what & why ?</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="1-2-3mapparseint-what--why-">[&apos;1&apos;, &apos;2&apos;, &apos;3&apos;].map(parseInt) what &amp; why ?</h1>
+<p>&#x524D;&#x7F6E;&#x77E5;&#x8BC6;&#xFF1A;</p>
+<ul>
+<li>array&#x7684;map&#x65B9;&#x6CD5;&#xFF0C;&#x4F20;&#x5165;&#x7684;&#x4E09;&#x4E2A;&#x53C2;&#x6570;&#x4F9D;&#x6B21;&#x662F;item&#x3001;index&#x548C;&#x6570;&#x7EC4;&#x672C;&#x8EAB;</li>
+<li><p><code>parseInt(string, radix)</code></p>
+<ul>
+<li>string&#x662F;&#x5FC5;&#x8981;&#x7684;&#x9700;&#x8981;&#x88AB;&#x89E3;&#x6790;&#x7684;&#x5B57;&#x6BB5;</li>
+<li>radix&#x8868;&#x793A;&#x8981;&#x89E3;&#x6790;&#x5B57;&#x6BB5;&#x7684;&#x57FA;&#x6570;&#xFF08;&#x4E00;&#x822C;&#x7701;&#x7565;&#x6216;&#x8005;&#x4E3A;0 &#x7684;&#x65F6;&#x5019;&#x57FA;&#x6570;&#x4E3A;10&#xFF0C;&#x5373;10&#x8FDB;&#x5236;&#xFF0C;&#x503C;&#x5728;2-36&#x4E4B;&#x95F4;&#xFF09;</li>
+</ul>
+</li>
+<li><p>&#x5176;&#x4ED6;&#x5E94;&#x8BE5;&#x6CE8;&#x610F;&#xFF1A;&#x5F53;&#x53C2;&#x6570; <em>radix</em> &#x7684;&#x503C;&#x4E3A; 0&#xFF0C;&#x6216;&#x6CA1;&#x6709;&#x8BBE;&#x7F6E;&#x8BE5;&#x53C2;&#x6570;&#x65F6;&#xFF0C;parseInt() &#x4F1A;&#x6839;&#x636E; <em>string</em> &#x6765;&#x5224;&#x65AD;&#x6570;&#x5B57;&#x7684;&#x57FA;&#x6570;&#x3002;</p>
+<p>&#x4E3E;&#x4F8B;&#xFF0C;&#x5982;&#x679C; <em>string</em> &#x4EE5; &quot;0x&quot; &#x5F00;&#x5934;&#xFF0C;parseInt() &#x4F1A;&#x628A; <em>string</em> &#x7684;&#x5176;&#x4F59;&#x90E8;&#x5206;&#x89E3;&#x6790;&#x4E3A;&#x5341;&#x516D;&#x8FDB;&#x5236;&#x7684;&#x6574;&#x6570;&#x3002;&#x5982;&#x679C; <em>string</em> &#x4EE5; 0 &#x5F00;&#x5934;&#xFF0C;&#x90A3;&#x4E48; ECMAScript v3 &#x5141;&#x8BB8; parseInt() &#x7684;&#x4E00;&#x4E2A;&#x5B9E;&#x73B0;&#x628A;&#x5176;&#x540E;&#x7684;&#x5B57;&#x7B26;&#x89E3;&#x6790;&#x4E3A;&#x516B;&#x8FDB;&#x5236;&#x6216;&#x5341;&#x516D;&#x8FDB;&#x5236;&#x7684;&#x6570;&#x5B57;&#x3002;&#x5982;&#x679C; <em>string</em> &#x4EE5; 1 ~ 9 &#x7684;&#x6570;&#x5B57;&#x5F00;&#x5934;&#xFF0C;parseInt() &#x5C06;&#x628A;&#x5B83;&#x89E3;&#x6790;&#x4E3A;&#x5341;&#x8FDB;&#x5236;&#x7684;&#x6574;&#x6570;&#x3002;</p>
+<pre><code class="lang-shell">parseInt(&apos;10&apos;)    //10
+parseInt(&apos;12&apos;,3)    //4 (1*3+2*0)
+parseInt(&apos;11&apos;,2)    //3 (1*2+1*0)
+parseInt(&quot;1f&quot;,16);        //&#x8FD4;&#x56DE; 31 (16+15)
+parseInt(&quot;010&quot;);        //&#x672A;&#x5B9A;&#xFF1A;&#x8FD4;&#x56DE; 10 &#x6216; 8
+</code></pre>
+</li>
+</ul>
+<p>&#x89E3;&#x6790;<code>[&apos;1&apos;, &apos;2&apos;, &apos;3&apos;].map(parseInt)</code>:</p>
+<blockquote>
+<p><code>[&apos;1&apos;, &apos;2&apos;, &apos;3&apos;].map(parseInt)</code>&#x76F8;&#x5F53;&#x4E8E;&#x8FD4;&#x56DE; <code>parseInt(&apos;1&apos;,0)</code> <code>parseInt(&apos;2&apos;,1)</code> <code>parseInt(&apos;3&apos;,2)</code>,&#x6240;&#x4EE5;&#xFF0C;&#x4E09;&#x4E2A;&#x8FD4;&#x56DE;&#x503C;&#x5206;&#x522B;&#x4E3A;<code>1</code> <code>NaN</code> <code>NaN</code>,&#x6240;&#x4EE5;&#x7ED3;&#x679C;&#x662F;<code>[1,NaN,NaN]</code></p>
+</blockquote>
+<p>&#x540C;&#x7406;&#xFF1A;<code>[&apos;10&apos;,&apos;10&apos;,&apos;10&apos;,&apos;10&apos;,&apos;10&apos;].map(parseInt);</code>&#x7684;&#x8FD4;&#x56DE;&#x503C;&#x662F;<code>[10,NaN,3,4,5]</code>;&#x6CE8;&#x610F;1&#x8FDB;&#x5236;&#x4E2D;&#x4EFB;&#x4F55;&#x6570;&#x503C;&#x8FD4;&#x56DE;&#x90FD;&#x662F;NaN</p>
+<p>&#x62D3;&#x5C55;&#x5EF6;&#x4F38;&#xFF1A;&#x90A3;&#x4E48;&#x5982;&#x679C;&#x8981;&#x5C06;&#x4E0A;&#x9762;&#x7684;&#x6570;&#x7EC4;&#x89E3;&#x6790;&#x6210;&#x6B63;&#x5E38;&#x7684;10&#x8FDB;&#x5236;&#x6570;&#x7EC4;&#x600E;&#x6837;&#x6539;&#x53D8;</p>
+<pre><code class="lang-shell">[&apos;1&apos;, &apos;2&apos;, &apos;3&apos;].map((item)=&gt;{parseInt(item)})    //&#x53EF;&#x4EE5;&#x4E0D;&#x7A7F;&#x7B2C;&#x4E8C;&#x4F4D;&#x53C2;&#x6570;&#xFF0C;&#x4E5F;&#x53EF;&#x4EE5;&#x8BBE;&#x7F6E;&#x7B2C;&#x4E8C;&#x4F4D;&#x53C2;&#x6570;&#x4E3A;10
+
+//[1,2,3]
+</code></pre>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="new一个对象.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: new一个对象">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"['1', '2', '3'].map(parseInt) what & why ?","level":"1.1.5","depth":2,"previous":{"title":"new一个对象","level":"1.1.4","depth":2,"path":"doc/new一个对象.md","ref":"doc/new一个对象.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"doc/一个数组map的parseInt.md","mtime":"2020-06-08T09:05:29.686Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-06-08T09:06:55.904Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
